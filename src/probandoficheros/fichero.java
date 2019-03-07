@@ -52,16 +52,26 @@ public class fichero {
         ArrayList<Usuario> lista = new ArrayList<Usuario>();
         try {
             sc = new Scanner(fich);
-            System.out.println("puntuaciones:");
             while (sc.hasNextLine()) {
                 String[] nicks = sc.nextLine().split(" ");
                 Usuario user = new Usuario(nicks[0], (Integer.parseInt(nicks[1])));
                 lista.add(user);
             }
             Collections.sort(lista);
-            for (Usuario ele : lista) {
-                System.out.println(ele);
-            }
+//            for (Usuario ele : lista) {
+//                System.out.println(ele);
+//            }
+//            System.out.println("5 mejores puntuaciones:");
+//            for (int i = 0; i < 5; i++) {
+//                System.out.println(lista.get(i).getNick()+" "+lista.get(i).getPuntuacion());
+//            }
+            
+            JOptionPane.showMessageDialog(null,"5 mejores puntuaciones:\n"+
+                    "-"+lista.get(0).getNick()+" "+lista.get(0).getPuntuacion()+"\n"+
+                    "-"+lista.get(1).getNick()+" "+lista.get(1).getPuntuacion()+"\n"+
+                    "-"+lista.get(2).getNick()+" "+lista.get(2).getPuntuacion()+"\n"+
+                    "-"+lista.get(3).getNick()+" "+lista.get(3).getPuntuacion()+"\n"+
+                    "-"+lista.get(4).getNick()+" "+lista.get(4).getPuntuacion()+"\n");
         } catch (FileNotFoundException ex) {
             System.out.println("");
         } finally {
