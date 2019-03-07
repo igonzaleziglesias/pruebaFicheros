@@ -9,8 +9,9 @@ package probandoficheros;
  *
  * @author igonzaleziglesias
  */
-public class Usuario {
-        private String nick;
+public class Usuario implements Comparable {
+
+    private String nick;
     private int puntuacion;
 
     public Usuario(String nick, int puntuacion) {
@@ -36,7 +37,18 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "nick=" + nick + "puntuacion= " + puntuacion;
+        return nick + " " + puntuacion;
     }
-    
+
+    @Override
+    public int compareTo(Object t) {
+        Usuario o = (Usuario) t;
+        if (this.puntuacion < o.puntuacion) {
+            return -1;
+        }
+        if (this.puntuacion > o.puntuacion) {
+            return 1;
+        }
+        return 0;
+    }
 }
