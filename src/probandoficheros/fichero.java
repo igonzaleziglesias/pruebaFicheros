@@ -17,14 +17,14 @@ public class fichero {
     Scanner sc;
 
     public fichero() {
-//        fich = new File("/home/local/DANIELCASTELAO/igonzaleziglesias/Escritorio/puntuaciones.txt");
-        fich = new File("C:\\Users\\Usuario\\Desktop\\puntuaciones.txt");
+        fich = new File("/home/local/DANIELCASTELAO/igonzaleziglesias/Escritorio/puntuaciones.txt");
+//        fich = new File("C:\\Users\\Usuario\\Desktop\\puntuaciones.txt");
     }
 
     public void añadirPuntuacion(int puntuacion) {
         try {
-//            f = new PrintWriter(new FileWriter("/home/local/DANIELCASTELAO/igonzaleziglesias/Escritorio/puntuaciones.txt", true));
-            f = new PrintWriter(new FileWriter("C:\\Users\\Usuario\\Desktop\\puntuaciones.txt", true));
+            f = new PrintWriter(new FileWriter("/home/local/DANIELCASTELAO/igonzaleziglesias/Escritorio/puntuaciones.txt", true));
+//            f = new PrintWriter(new FileWriter("C:\\Users\\Usuario\\Desktop\\puntuaciones.txt", true));
             Usuario jugador = new Usuario(JOptionPane.showInputDialog("Nick: "), puntuacion);
             f.println(jugador);
         } catch (IOException ex) {
@@ -65,13 +65,32 @@ public class fichero {
 //            for (int i = 0; i < 5; i++) {
 //                System.out.println(lista.get(i).getNick()+" "+lista.get(i).getPuntuacion());
 //            }
-            
-            JOptionPane.showMessageDialog(null,"5 mejores puntuaciones:\n"+
-                    "-"+lista.get(0).getNick()+" "+lista.get(0).getPuntuacion()+"\n"+
-                    "-"+lista.get(1).getNick()+" "+lista.get(1).getPuntuacion()+"\n"+
-                    "-"+lista.get(2).getNick()+" "+lista.get(2).getPuntuacion()+"\n"+
-                    "-"+lista.get(3).getNick()+" "+lista.get(3).getPuntuacion()+"\n"+
-                    "-"+lista.get(4).getNick()+" "+lista.get(4).getPuntuacion()+"\n");
+            if (lista.size() == 1) {
+                JOptionPane.showMessageDialog(null, "5 mejores puntuaciones:\n"
+                        + "-" + lista.get(0).getNick() + " " + lista.get(0).getPuntuacion());
+            } else if (lista.size() == 2) {
+                JOptionPane.showMessageDialog(null, "5 mejores puntuaciones:\n"
+                        + "-" + lista.get(0).getNick() + " " + lista.get(0).getPuntuacion() + "\n"
+                        + "-" + lista.get(1).getNick() + " " + lista.get(1).getPuntuacion() + "\n");
+            } else if (lista.size() == 3) {
+                JOptionPane.showMessageDialog(null, "5 mejores puntuaciones:\n"
+                        + "-" + lista.get(0).getNick() + " " + lista.get(0).getPuntuacion() + "\n"
+                        + "-" + lista.get(1).getNick() + " " + lista.get(1).getPuntuacion() + "\n"
+                        + "-" + lista.get(2).getNick() + " " + lista.get(2).getPuntuacion() + "\n");
+            } else if (lista.size() == 4) {
+                JOptionPane.showMessageDialog(null, "5 mejores puntuaciones:\n"
+                        + "-" + lista.get(0).getNick() + " " + lista.get(0).getPuntuacion() + "\n"
+                        + "-" + lista.get(1).getNick() + " " + lista.get(1).getPuntuacion() + "\n"
+                        + "-" + lista.get(2).getNick() + " " + lista.get(2).getPuntuacion() + "\n"
+                        + "-" + lista.get(3).getNick() + " " + lista.get(3).getPuntuacion() + "\n");
+            } else {
+                JOptionPane.showMessageDialog(null, "5 mejores puntuaciones:\n"
+                        + "-" + lista.get(0).getNick() + " " + lista.get(0).getPuntuacion() + "\n"
+                        + "-" + lista.get(1).getNick() + " " + lista.get(1).getPuntuacion() + "\n"
+                        + "-" + lista.get(2).getNick() + " " + lista.get(2).getPuntuacion() + "\n"
+                        + "-" + lista.get(3).getNick() + " " + lista.get(3).getPuntuacion() + "\n"
+                        + "-" + lista.get(4).getNick() + " " + lista.get(4).getPuntuacion() + "\n");
+            }
         } catch (FileNotFoundException ex) {
             System.out.println("");
         } finally {

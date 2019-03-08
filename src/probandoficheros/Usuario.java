@@ -44,10 +44,10 @@ public class Usuario implements Comparable {
     public int compareTo(Object t) {
         Usuario o = (Usuario) t;
         if (this.puntuacion < o.puntuacion) {
-            return -1;
+            return 1;
         }
         if (this.puntuacion > o.puntuacion) {
-            return 1;
+            return -1;
         }
         return 0;
     }
